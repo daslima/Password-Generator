@@ -59,17 +59,6 @@ copyBtn.addEventListener('click', () => {
 
 //--------------------------------------------------------- COPY TEXT INPUT
 
-const generateBtn = document.getElementById('generate');
-
-const copyBtn = document.getElementById("copy-btn");
-const copyInfo = document.querySelector('.result__info.right');
-const copiedInfo = document.querySelector(".result__info.left");
-const resultContainer = document.querySelector('.result');
-const resultEl = document.getElementById('result');
-
-let generatedPassword = false;
-let resultContainerBound = {left: resultContainer.getBoundingClientRect().left,top: resultContainer.getBoundingClientRect().top};
-
 resultContainer.addEventListener('mousemove', e => {
 	resultContainerBound = {left: resultContainer.getBoundingClientRect().left,top: resultContainer.getBoundingClientRect().top};
 	
@@ -148,7 +137,6 @@ const randomFunc = {lower: generate.getRandomLower, upper: generate.getRandomUpp
 					number: generate.getRandomNumber, symbol: generate.getRandomSymbol};
 
 function generatePassword(length, lower, upper, number, symbol) {
-	console.log(`${length} - ${lower} - ${upper} - ${number} - ${symbol}`)
 
 	let generatedPassword = '';
 	const typesCount = lower + upper + number + symbol;
@@ -161,7 +149,6 @@ function generatePassword(length, lower, upper, number, symbol) {
 	for (let i = 0; i < length; i++) {
 		typesArr.forEach(type => {
 			const funcName = Object.keys(type)[0];
-			console.log(funcName)
 			generatedPassword += randomFunc[funcName]();
 		});
 	}
