@@ -1,5 +1,5 @@
-//import { Custom } from "./Custom.js";
-//const cls = new Custom();
+import { Generate } from "./Generate.js";
+const generate = new Generate();
 
 //--------------------------------------------------------- COPY TEXT INPUT
 
@@ -60,6 +60,7 @@ copyBtn.addEventListener('click', () => {
 const slider = document.querySelector(".range__slider");
 const sliderValue = document.querySelector(".length__title");
 const sliderProps = {fill: "#1d918c", background: "rgba(255, 255, 255, 0.214)"};
+const lengthEl = document.getElementById('slider');
 
 function setLengthValue(value){
     document.querySelector(".lengthText").innerText = value == 0 ? 4 : value;
@@ -81,6 +82,52 @@ slider.querySelector('input').addEventListener("input", event => {
 
 applyFill(slider.querySelector("input"));
 
+//-------------------------------------------- Generate Password
+const uppercaseEl = document.getElementById('uppercase');
+const lowercaseEl = document.getElementById('lowercase');
+const numberEl = document.getElementById('number');
+const symbolEl = document.getElementById("symbol");
+
+const randomFunc = {lower: generate.getRandomLower, upper: generate.getRandomUpper, 
+					number: generate.getRandomNumber, symbol: generate.getRandomSymbol};
+
+function generatePassword(length, lower, upper, number, symbol) {
+	console.log(`${length} - ${lower} - ${upper} - ${number} - ${symbol}`)
+
+	let generatedPassword = '';
+	const typesCount = lower + upper + number + symbol;
+	const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+	
+	if (typesCount === 0) 
+		return '';
+	
+
+	for (let i = 0; i < length; i++) {
+		typesArr.forEach(type => {
+			const funcName = Object.keys(type)[0];
+			console.log(funcName)
+			generatedPassword += randomFunc[funcName]();
+		});
+	}
+	return generatedPassword.slice(0, length);
+}
+
+function disableOnlyCheckbox() {
+	let totalChecked = [uppercaseEl, lowercaseEl, numberEl, symbolEl].filter(el => el.checked)
+	totalChecked.forEach(el => {
+		if(totalChecked.length == 1){
+			el.disabled = true;
+		}else {
+			el.disabled = false;
+		}
+	})
+}
+
+[uppercaseEl, lowercaseEl, numberEl, symbolEl].forEach(el => {
+	el.addEventListener('click', () => {
+		disableOnlyCheckbox()
+	})
+})
 
 
 generateBtn.addEventListener("click", () => {
@@ -89,4 +136,12 @@ generateBtn.addEventListener("click", () => {
 	copyInfo.style.opacity = "0.75";
 	copiedInfo.style.transform = "translatey(200%)";
 	copiedInfo.style.opacity = "0";
+
+	const length = +lengthEl.value;
+	const hasLower = lowercaseEl.checked;
+	const hasUpper = uppercaseEl.checked;
+	const hasNumber = numberEl.checked;
+	const hasSymbol = symbolEl.checked;
+	generatedPassword = true;
+	resultEl.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
 });
