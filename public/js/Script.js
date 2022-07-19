@@ -1,8 +1,6 @@
 import { Generate } from "./Generate.js";
 const generate = new Generate();
 
-//--------------------------------------------------------- COPY TEXT INPUT
-
 const generateBtn = document.getElementById('generate');
 
 const copyBtn = document.getElementById("copy-btn");
@@ -55,7 +53,6 @@ copyBtn.addEventListener('click', () => {
 	copiedInfo.style.opacity = "0.75";
 });
 
-//-------------------------------------------------------------- INPUT RANGE
 
 //--------------------------------------------------------- COPY TEXT INPUT
 
