@@ -21,6 +21,3 @@ jobs:
 
       - name: Install dependecies
         run: npm install
-
-      - name: Run nodemon 
-        run: npm start
