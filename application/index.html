@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/icone.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Password Generator</title>
+</head>
+<body>
+    <main class="container">
+        <img class="image__logo" src="img/criptografado.png" alt="" >
+        <h2 class="title">Password Generator</h2>
+        <section class="result">
+            <div class="result__title field-title">
+                Generated Password
+            </div>
+            <div class="result__info right">
+                click to copy
+            </div>
+            <div class="result__info left">
+                copied
+            </div>
+            <div class="result__veiwbox" id="result">
+                
+            </div>
+            <button id="copy-btn" style="--x: 0; --y: 0"> 
+                <i class="fa-regular fa-copy"></i>
+            </button>
+        </section>
+        
+        <section class="length range__slider" data-min="4" data-max="32">
+            <div class="length__title field-title" data-length="0">
+                length: <span class="lengthText"></span>
+            </div>
+            <input type="range" id="slider" min="4" max="32" value="4">
+        
+        </section>
+        
+        <section class="settings">
+            <span class="setting__title field-title">
+                setting
+            </span>
+            <div class="setting">
+                <input type="checkbox" id="uppercase">
+                <label for="uppercase">
+                    Include Uppercase
+                </label>
+            </div>
+            <div class="setting">
+                <input type="checkbox" id="lowercase" >
+                <label for="lowercase">
+                    Include Lowercase
+                </label>
+            </div>
+            <div class="setting">
+                <input type="checkbox" id="number" checked>
+                <label for="number">
+                    Include Numbers
+                </label>
+            </div>
+            <div class="setting">
+                <input type="checkbox" id="symbol">
+                <label for="symbol">
+                    Include Symbols
+                </label>
+            </div>
+            <button class="btn generate" id="generate">
+                Generate Password
+            </button>
+        </section>
+    </main>
+
+    <script  type="module" src="../js/Script.js"></script>
+</body>
+</html>
