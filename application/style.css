@@ -83,6 +83,10 @@ button {
 	line-height: 65px;
 }
 
+.lengthText{
+	color: #fff;
+}
+
 /* Btn Copy */
 #copy-btn {
 	position: absolute;
