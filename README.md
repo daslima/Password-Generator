@@ -9,3 +9,9 @@ These instructions will allow you to get a working copy of the project on your l
 
 ## 🔧 Installationn
 
+Open the terminal and run the following commands:
+
+```
+git clone https://github.com/daslima/Password-Generator.git
+cd Password-Generator
+```
