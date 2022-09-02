@@ -7,7 +7,7 @@ These instructions will allow you to get a working copy of the project on your l
 * [Node - v14](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 
-## 🔧 Installationn
+## 🔧 Installation
 
 Open the terminal and run the following commands:
 
