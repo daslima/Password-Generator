@@ -1,13 +1,18 @@
 /// <reference types="cypress" />
 
+import Verify from '../pages/Verify';
 
-describe('example to-do app', () => {
+describe('Checking generated passwords', () => {
+  
+  let verify = '';
+
   beforeEach(() => {
-    cy.visit('index.html')
+    cy.visit('index.html');
+    verify = new Verify();
   })
 
   it('Generate numbers only', () => {
-    
+      verify.onlyNumbers();
   });
 
 })
