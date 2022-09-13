@@ -12,7 +12,11 @@ describe('Checking generated passwords', () => {
   })
 
   it('Generate numbers only', () => {
-      verify.onlyNumbers();
+        verify.onlyNumbers();
+  });
+
+  it('Generate symbols only', () => {
+      verify.onlyLowercase();
   });
 
 })
