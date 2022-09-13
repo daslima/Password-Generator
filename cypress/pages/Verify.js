@@ -20,6 +20,7 @@ class Verify {
             expect(isValid).equal(true);
           });
     }
+       
 
     generate(){
         cy.get('#generate').click();
