@@ -4,19 +4,18 @@ import Verify from '../pages/Verify';
 
 describe('Checking generated passwords', () => {
   
-  let verify = '';
-
-  beforeEach(() => {
-    cy.visit('index.html');
-    verify = new Verify();
-  })
+  beforeEach(() => cy.visit('index.html'))
 
   it('Generate numbers only', () => {
-        verify.onlyNumbers();
+      Verify.onlyNumbers();
   });
 
-  it('Generate symbols only', () => {
-      verify.onlyLowercase();
+  it.only('Generate lowercase only', () => {
+      Verify.onlyLowercase();
+  });
+
+  it('Generate uppercase only', () => {
+    Verify.onlyUppercase();
   });
 
 })
