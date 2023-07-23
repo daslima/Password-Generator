@@ -4,6 +4,7 @@ class PageEL {
     inputNumber = () => 'input[id="number"]';
     inputLowerCase = () => 'input[id="lowercase"]';
     inputUpperCase = () => 'input[id="uppercase"]';
+    inputSymbol = () => 'input[id="symbol"]';
 
     //Buttons
     btnGeneratePassword = () => 'button[id="generate"]';

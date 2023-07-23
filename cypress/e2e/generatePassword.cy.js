@@ -10,12 +10,16 @@ describe('Checking generated passwords', () => {
       Verify.onlyNumbers();
   });
 
-  it.only('Generate lowercase only', () => {
+  it('Generate lowercase only', () => {
       Verify.onlyLowercase();
   });
 
   it('Generate uppercase only', () => {
     Verify.onlyUppercase();
+  });
+
+  it.only('Generate symbol only', () => {
+    Verify.onlySymbols();
   });
 
 })

@@ -3,6 +3,7 @@ import PageEL from "../elements/PageEL";
 const NUMBER = /^[0-9]+$/;
 const LOWERCASE = /^[a-z][a-z0-9_.]*$/;
 const UPPERCASE = /^([A-Z][A-Z]+)+$/
+const SYMBOLS = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
 
 class Verify {
 
@@ -24,6 +25,12 @@ class Verify {
         this.assertResult(UPPERCASE);
     };
 
+    onlySymbols(){
+        cy.get(PageEL.inputSymbol()).check().should('be.checked');
+        this.generate();
+        this.assertResult(SYMBOLS);
+    };
+
     assertResult(regex){
         cy.get(PageEL.divViewBox()).then((value) => {
             let isValid = value.text().match(regex) ? true : false;
@@ -33,7 +40,7 @@ class Verify {
     
     generate(){
         cy.get(PageEL.btnGeneratePassword()).click({ force: true});
-    };
+    };  
 }
 
 export default new Verify;
