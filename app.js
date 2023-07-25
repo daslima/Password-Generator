@@ -1,4 +1,4 @@
-import { Generate } from "./Generate.js";
+import { Generate } from "./generate.js";
 const generate = new Generate();
 
 const generateBtn = document.getElementById('generate');

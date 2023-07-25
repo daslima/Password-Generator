@@ -1,31 +1,46 @@
+import PageEL from "../elements/PageEL";
+
+const NUMBER = /^[0-9]+$/;
+const LOWERCASE = /^[a-z][a-z0-9_.]*$/;
+const UPPERCASE = /^([A-Z][A-Z]+)+$/
+const SYMBOLS = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
+
 class Verify {
 
     onlyNumbers(){
-        cy.get('input[id="number"]').check();
-        cy.get('input[id="number"]').should('be.checked');
+        cy.get(PageEL.inputNumber()).check().should('be.checked')
         this.generate();
-        this.assertResult(/^[0-9]+$/);
+        this.assertResult(NUMBER);
     };
 
     onlyLowercase(){
-        cy.get('input[id="lowercase"]').check();
-        cy.get('input[id="lowercase"]').should('be.checked');
+        cy.get(PageEL.inputLowerCase()).check().should('be.checked');
         this.generate();
-        this.assertResult(/^[a-z][a-z0-9_.]*$/);
-    }
+        this.assertResult(LOWERCASE);
+    };
+
+    onlyUppercase(){
+        cy.get(PageEL.inputUpperCase()).check().should('be.checked');
+        this.generate();
+        this.assertResult(UPPERCASE);
+    };
+
+    onlySymbols(){
+        cy.get(PageEL.inputSymbol()).check().should('be.checked');
+        this.generate();
+        this.assertResult(SYMBOLS);
+    };
 
     assertResult(regex){
-        cy.get('.result__veiwbox').then((value) => {
+        cy.get(PageEL.divViewBox()).then((value) => {
             let isValid = value.text().match(regex) ? true : false;
             expect(isValid).equal(true);
-          });
-    }
-       
-
+        });
+    };
+    
     generate(){
-        cy.get('#generate').click();
-    }
-
+        cy.get(PageEL.btnGeneratePassword()).click({ force: true});
+    };      
 }
 
-export default Verify;
+export default new Verify;

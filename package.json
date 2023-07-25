@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/daslima/Password-Generator#readme",
   "devDependencies": {
-    "cypress": "^10.4.0"
+    "cypress": "^12.14.0"
   }
 }
