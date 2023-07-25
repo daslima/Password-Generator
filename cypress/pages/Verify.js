@@ -40,7 +40,7 @@ class Verify {
     
     generate(){
         cy.get(PageEL.btnGeneratePassword()).click({ force: true});
-    };  
+    };      
 }
 
 export default new Verify;

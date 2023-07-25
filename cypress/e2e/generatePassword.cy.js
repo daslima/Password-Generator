@@ -18,8 +18,7 @@ describe('Checking generated passwords', () => {
     Verify.onlyUppercase();
   });
 
-  it.only('Generate symbol only', () => {
+  it('Generate symbol only', () => {
     Verify.onlySymbols();
   });
-
 })
